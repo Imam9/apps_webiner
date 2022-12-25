@@ -30,7 +30,7 @@
         </div>
         <div class="card">
             <div class="card-header">
-                <h4>Detail Webiner</h4>
+                <h4>Detail Riwayat Webiner</h4>
             </div>
             <div class="card-body">
                 <div class="row">
@@ -77,11 +77,6 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="">Kategori</label>
-                            <input type="text" name = "kategori" class="form-control" readonly value = "{{$data['detail']->kategori}}">
-                        </div>
-
-                        <div class="form-group">
                             <label for="">Institusi</label>
                             <input type="text" name = "institusi" class="form-control" readonly value = "{{$data['detail']->nama_institusi}}">
                         </div>
@@ -91,50 +86,42 @@
                         <label for="">Gambar Webiner</label>
                         <img src="{{asset('webiner/'.$data['detail']->gambar_webiner)}}" alt="" width="100%">
                       
-                        <div class="form-group mt-2">
+                        <div class="form-group mt-3">
                             <label for="">Deskripsi</label>
                             <textarea name="deskripsi_webiner" id="" cols="30" rows="10" value = "{{$data['detail']->deskripsi_webiner}}" class="form-control" readonly>{{$data['detail']->deskripsi_webiner}}</textarea>
                         </div>
 
                         <div class="text-right mt-5">
-                            <a href="{{$data['detail']->link_webiner}}" target = "_BLANK" class="btn btn-primary">Join Link</a>
+                            <a href="{{$data['detail']->link_webiner}}" target = "_BLANK" class="btn btn-primary">Cetak Sertifikat</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        
         <div class="card">
             <div class="card-header">
-                <h4>Data Pendaftaran</h4>
+                <h4>Data Materi Webiner</h4>
             </div>
             <div class="card-body">
                 <table id="myTable2" class="table table-striped table-hover" cellspacing="0" width="100%">
                     <thead >
                         <tr >
                             <th width = "5%">No.</th>
-                            <th>Nama Pendaftar</th>
-                            <th>Tanggal Daftar</th>
-                            <th>Tanggal Absen</th>
-                            <th>Email Pendaftar</th>
-                            <th>Status</th>
+                            <th>Nama Materi</th>
+                            <th>Deskripsi Materi</th>
+                            <th class="text-center">File Materi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php $no =1; ?>
-                        @foreach ($data['peserta'] as $item)
+                        <?php $no = 1 ?>
+                        @foreach ($data['materi'] as $item)
                             <tr>
                                 <td>{{$no++}}</td>
-                                <td>{{$item->name}}</td>
-                                <td>{{$item->tgl_pendaftaran}}</td>
-                                <td>{{$item->tgl_absensi}}</td>
-                                <td>{{$item->email}}</td>
-                                <td>
-                                    <?php if($item->tgl_absensi == NULL){ ?>
-                                        <div class="badge badge-warning">Belum Hadir</div>
-                                    <?php }else{ ?>
-                                         <div class="badge badge-success">Hadir</div>
-                                    <?php } ?>
-                                </td>
+                                <td>{{$item->nama_materi}}</td>
+                                <td>{{$item->deskripsi_materi}}</td>
+                                <td class="text-center"><a href="{{asset('materi/'.$item->file_materi)}}" target = "_BLANK" class="btn btn-warning"><i class="fas fa-download"></i> Download</a></td>
+                 
                             </tr>
                         @endforeach
                     </tbody>
@@ -142,6 +129,7 @@
 
             </div>
         </div>
+       
     </div>
 </section>
 

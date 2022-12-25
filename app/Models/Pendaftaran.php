@@ -4,17 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Materi extends Model
+class Pendaftaran extends Model
 {
 
-    protected $table = 'materi';
+    protected $table = 'pendaftaran';
 
     protected $fillable = [
+        'id_pendaftaran',
+        'id_users',
         'id_webiner',
-        'nama_materi',
-        'id_webiner',
-        'file_materi',
-        'deskripsi_materi',
+        'tgl_absensi',
         'created_at',
     ];
 }

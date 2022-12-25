@@ -103,37 +103,39 @@
                 </div>
             </div>
         </div>
+
+        <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#myModal">
+            <i class="fa fa-plus"></i> Tambah Data
+        </button>
+
         <div class="card">
             <div class="card-header">
-                <h4>Data Pendaftaran</h4>
+                <h4>Data Materi Webiner</h4>
             </div>
             <div class="card-body">
                 <table id="myTable2" class="table table-striped table-hover" cellspacing="0" width="100%">
                     <thead >
                         <tr >
                             <th width = "5%">No.</th>
-                            <th>Nama Pendaftar</th>
-                            <th>Tanggal Daftar</th>
-                            <th>Tanggal Absen</th>
-                            <th>Email Pendaftar</th>
-                            <th>Status</th>
+                            <th>Nama Materi</th>
+                            <th>Deskripsi Materi</th>
+                            <th>File Materi</th>
+                            <th class="text-center">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php $no =1; ?>
-                        @foreach ($data['peserta'] as $item)
+                        <?php $no = 1 ?>
+                        @foreach ($data['materi'] as $item)
                             <tr>
                                 <td>{{$no++}}</td>
-                                <td>{{$item->name}}</td>
-                                <td>{{$item->tgl_pendaftaran}}</td>
-                                <td>{{$item->tgl_absensi}}</td>
-                                <td>{{$item->email}}</td>
-                                <td>
-                                    <?php if($item->tgl_absensi == NULL){ ?>
-                                        <div class="badge badge-warning">Belum Hadir</div>
-                                    <?php }else{ ?>
-                                         <div class="badge badge-success">Hadir</div>
-                                    <?php } ?>
+                                <td>{{$item->nama_materi}}</td>
+                                <td>{{$item->deskripsi_materi}}</td>
+                                <td><a href="{{asset('materi/'.$item->file_materi)}}" target = "_BLANK">Download</a></td>
+                                <td class="text-center">
+                                    <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#Update{{$item->id_materi}}">
+                                        <i class="fa fa-edit"></i> 
+                                    </button>
+                                    <a href="{{url('delete-materi/'.$item->id_materi)}}" class="btn btn-danger btn-sm"><i class = "fa fa-trash"></i></a>
                                 </td>
                             </tr>
                         @endforeach
@@ -144,6 +146,76 @@
         </div>
     </div>
 </section>
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
 
+            <div class="modal-header">
+                <h4 class="modal-title">Tambah Data</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <form action="{{url('insert-materi')}}" method="post" enctype="multipart/form-data">
+                <div class="modal-body">
+                    @csrf
+                    <div class="form-group">
+                        <label for="">Nama Materi</label>
+                        <input type="hidden" name = "id_webiner" value = "{{$data['id_webiner']}}">
+                        <input type="text" name = "nama_materi" class="form-control" required>
+                    </div>      
+                    <div class="form-group">
+                        <label for="">Deskripsi Materi</label>
+                        <textarea name="deskripsi_materi"  class="form-control" required cols="30" rows="10"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Upload Materi</label>
+                        <input type="file" name = "file_materi" class="form-control" required>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-success">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@foreach ($data['materi'] as $item) 
+<div class="modal fade" id="Update{{$item->id_materi}}">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h4 class="modal-title">Update Data</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <form action="{{url('update-materi')}}" method="post" enctype="multipart/form-data">
+                <div class="modal-body">
+                    @csrf
+                    <div class="form-group">
+                        <label for="">Nama Materi</label>
+                        <input type="hidden" name = "id_materi" value = "{{$item->id_materi}}">
+                        <input type="text" name = "nama_materi" class="form-control" value = "{{$item->nama_materi}}" required>
+                    </div>      
+                    <div class="form-group">
+                        <label for="">Deskripsi Materi</label>
+                        <textarea name="deskripsi_materi"  class="form-control" required cols="30" rows="10" value = "{{$item->deskripsi_materi}}">{{$item->deskripsi_materi}}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Upload Materi</label>
+                        <input type="file" name = "file_materi" class="form-control">
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-success">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@endforeach
 
 @endsection

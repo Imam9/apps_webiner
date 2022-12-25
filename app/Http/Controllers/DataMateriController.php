@@ -29,59 +29,58 @@ class DataMateriController extends Controller
 
         $data = [
             'title' => "Data Materi",
-            'webiner' => VwWebinerMateri::get(),
+            'webiner' => VwWebinerMateri::where('id_users', $id_users)->get(),
             // 'materi' => VwMateri::get('id_users', $id_users)->get(),
         ];
 
         return view('institusi/datamateri')->with('data', $data);
     }
 
-    public function insert(Request $request){
+    public function add_materi($id_webiner)
+    {
 
-        $berkas = $request->file('gambar');
-        $nama_document = time()."_".$berkas->getClientOriginalName();
-        $tujuan_upload = 'webiner';
-
-        $berkas->move($tujuan_upload,$nama_document);
-        
-        $id_users = Auth::user()->id;
+        $id_users =  Auth::user()->id;
 
         $data = [
-            'nama_webiner' => $request->nama_webiner,
-            'tgl_mulai' => $request->tgl_mulai,
-            'tgl_selesai' => $request->tgl_selesai,
-            'jam_mulai' => $request->jam_mulai,
-            'jam_selesai' => $request->jam_selesai,
-            'slot_peserta' => $request->slot_peserta,
-            'id_kategori' => $request->id_kategori,
-            'deskripsi_webiner' => $request->deskripsi_webiner,
-            'link_webiner' => $request->link_webiner,
-            'id_users' => $id_users,
-            'gambar_webiner' => $nama_document,
+            'title' => "Tambahkan Materi",
+            'id_webiner' => $id_webiner,
+            'materi' => VwMateri::where('id_webiner', $id_webiner)->get(),
+            'detail' => VwWebiner::where('id_users', $id_users)->where('id_webiner', $id_webiner)->first(),
+        ];
+
+        return view('institusi/adddatamateri')->with('data', $data);
+    }
+
+    public function insert(Request $request){
+
+        $berkas = $request->file('file_materi');
+        $nama_document = time()."_".$berkas->getClientOriginalName();
+        $tujuan_upload = 'materi';
+
+        $berkas->move($tujuan_upload,$nama_document);
+
+        $data = [
+            'nama_materi' => $request->nama_materi,
+            'deskripsi_materi' => $request->deskripsi_materi,
+            'id_webiner' => $request->id_webiner,
+            'file_materi' => $nama_document,
             'created_at' => Carbon::now(),
         ];
 
 
-        Webiner::insert($data);
+        Materi::insert($data);
 
         return redirect()->back()->with('suc_message', 'Data Berhasil disimpan!');
     }
 
     public function update(Request $request){
 
-        $id_webiner = $request->id_webiner;
-        $berkas = $request->file('gambar');
+        $id_materi = $request->id_materi;
+        $berkas = $request->file('file_materi');
         if($berkas == NULL){
             $data = [
-                'nama_webiner' => $request->nama_webiner,
-                'tgl_mulai' => $request->tgl_mulai,
-                'tgl_selesai' => $request->tgl_selesai,
-                'jam_mulai' => $request->jam_mulai,
-                'jam_selesai' => $request->jam_selesai,
-                'slot_peserta' => $request->slot_peserta,
-                'id_kategori' => $request->id_kategori,
-                'deskripsi_webiner' => $request->deskripsi_webiner,
-                'link_webiner' => $request->link_webiner,
+                'nama_materi' => $request->nama_materi,
+                'deskripsi_materi' => $request->deskripsi_materi,
             ];
     
         }else{
@@ -91,29 +90,19 @@ class DataMateriController extends Controller
             $berkas->move($tujuan_upload,$nama_document);
             
             $data = [
-                'nama_webiner' => $request->nama_webiner,
-                'tgl_mulai' => $request->tgl_mulai,
-                'tgl_selesai' => $request->tgl_selesai,
-                'jam_mulai' => $request->jam_mulai,
-                'jam_selesai' => $request->jam_selesai,
-                'slot_peserta' => $request->slot_peserta,
-                'sisa_slot_peserta' => $request->slot_peserta,
-                'id_kategori' => $request->id_kategori,
-                'deskripsi_webiner' => $request->deskripsi_webiner,
-                'link_webiner' => $request->link_webiner,
-                'gambar_webiner' => $nama_document,
+                'nama_materi' => $request->nama_materi,
+                'deskripsi_materi' => $request->deskripsi_materi,
+                'file_materi' => $nama_document,
             ];
         }
 
-
-        Webiner::where('id_webiner', $id_webiner)->update($data);
+        Materi::where('id_materi', $id_materi)->update($data);
 
         return redirect()->back()->with('suc_message', 'Data Berhasil diupdate!');
     }
 
-    public function delete($id_webiner){
-        Webiner::where('id_webiner', $id_webiner)->delete();
-
+    public function delete($id_materi){
+        add_materi::where('id_materi', $id_materi)->delete();
         return redirect()->back()->with('suc_message', 'Data Berhasil Dihapus!');
     }
 
@@ -123,9 +112,9 @@ class DataMateriController extends Controller
         
         $data = [
             'title' => "Detail Data Webiner",
-            'detail' => VwWebiner::where('id_users', $id_users)->first(),
+            'detail' => VwWebiner::where('id_users', $id_users)->where('id_webiner', $id_webiner)->first(),
         ];
 
-        return view('institusi/detail-webiner')->with('data', $data);
+        return view('institusi/addmateriwebiner')->with('data', $data);
     }
 }

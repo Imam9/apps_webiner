@@ -44,6 +44,7 @@
                             <th>Jam Mulai</th>
                             <th>Jam Selesai</th>
                             <th>Kuota</th>
+                            <th>Sisa Kuota</th>
                             <th>Link Webiner</th>
                             <th class="text-center">Action</th>
                         </tr>
@@ -59,6 +60,7 @@
                                 <td>{{$item->jam_mulai}}</td>
                                 <td>{{$item->jam_selesai}}</td>
                                 <td>{{$item->slot_peserta}}</td>
+                                <td>{{$item->sisa_slot_peserta}}</td>
                                 <td><a href="{{$item->link_webiner}}" target="_BLANK">Link Join</a></td>
                                 <td width = "10%" class="text-center">
                                     <a href="{{url('detail-webiner/'.$item->id_webiner)}}" class="btn btn-info btn-sm"><i class = "fa fa-eye"></i></a>

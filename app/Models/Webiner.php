@@ -21,6 +21,6 @@ class Webiner extends Model
         'link_webiner',
         'id_kategori',
         'created_at',
-        'id_users',
+        'id_institusi',
     ];
 }

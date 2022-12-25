@@ -39,58 +39,23 @@ Route::get('data-webiner', [App\Http\Controllers\DataWebinerController::class, '
 Route::get('detail-webiner/{id}', [App\Http\Controllers\DataWebinerController::class, 'detail']);
 Route::post('insert-webiner', [App\Http\Controllers\DataWebinerController::class, 'insert']);
 Route::post('update-webiner', [App\Http\Controllers\DataWebinerController::class, 'update']);
+Route::get('ikuti-webiner/{id}', [App\Http\Controllers\DataWebinerController::class, 'ikuti_webiner']);
 
 
 Route::get('data-materi', [App\Http\Controllers\DataMateriController::class, 'index']);
-// Route::get('detail-webiner/{id}', [App\Http\Controllers\DataMateriController::class, 'detail']);
+Route::get('add-materi/{id}', [App\Http\Controllers\DataMateriController::class, 'add_materi']);
 Route::post('insert-materi', [App\Http\Controllers\DataMateriController::class, 'insert']);
 Route::post('update-materi', [App\Http\Controllers\DataMateriController::class, 'update']);
 
 
-// Petugas dan admin
-// Route::get('dashboard-petugas', [App\Http\Controllers\Petugas\DashboardController::class, 'index']);
-// Route::get('data-petugas', [App\Http\Controllers\Petugas\DataPetugasController::class, 'index']);
-// Route::post('insert-petugas', [App\Http\Controllers\Petugas\DataPetugasController::class, 'insert']);
-// Route::post('update-petugas', [App\Http\Controllers\Petugas\DataPetugasController::class, 'update']);
-// Route::get('delete-petugas/{id}', [App\Http\Controllers\Petugas\DataPetugasController::class, 'delete']);
 
-// Route::get('data-admin', [App\Http\Controllers\Petugas\DataAdminController::class, 'index']);
-// Route::post('insert-admin', [App\Http\Controllers\Petugas\DataAdminController::class, 'insert']);
-// Route::post('update-admin', [App\Http\Controllers\Petugas\DataAdminController::class, 'update']);
-// Route::get('delete-admin/{id}', [App\Http\Controllers\Petugas\DataAdminController::class, 'delete']);
+// Role Pengguna
+Route::get('dashboard-pengguna', [App\Http\Controllers\DashboardController::class, 'index']);
+Route::get('data-pendaftaran', [App\Http\Controllers\DataPendaftaranController::class, 'index']);
+Route::post('insert-absensi', [App\Http\Controllers\DataPendaftaranController::class, 'insert_absensi']);
 
-// Route::get('data-anggota', [App\Http\Controllers\Petugas\DataAnggotaController::class, 'index']);
+Route::get('riwayat-pendaftaran', [App\Http\Controllers\DataRiwayatController::class, 'index']);
+Route::get('detail-riwayat/{id}', [App\Http\Controllers\DataRiwayatController::class, 'detail']);
 
-// Route::get('data-buku', [App\Http\Controllers\Petugas\DataBukuController::class, 'index']);
-// Route::post('insert-buku', [App\Http\Controllers\Petugas\DataBukuController::class, 'insert']);
-// Route::post('update-buku', [App\Http\Controllers\Petugas\DataBukuController::class, 'update']);
-// Route::get('delete-buku/{id}', [App\Http\Controllers\Petugas\DataBukuController::class, 'delete']);
-
-// Route::get('data-peminjaman', [App\Http\Controllers\Petugas\DataPeminjamanController::class, 'index']);
-// Route::post('apporve-peminjaman', [App\Http\Controllers\Petugas\DataPeminjamanController::class, 'approve_peminjaman']);
-// Route::get('detail-peminjaman/{id}', [App\Http\Controllers\Petugas\DataPeminjamanController::class, 'detail']);
-
-// Route::get('data-pengembalian', [App\Http\Controllers\Petugas\DataPengembalianController::class, 'index']);
-// Route::post('pengembalian-buku', [App\Http\Controllers\Petugas\DataPengembalianController::class, 'pengembalian']);
-
-
-// Route::get('data-laporan', [App\Http\Controllers\Petugas\DataLaporanController::class, 'index']);
-// Route::post('filter-laporan', [App\Http\Controllers\Petugas\DataLaporanController::class, 'filter_laporan']);
-
-
-// Anggota
-// Route::get('dashboard-anggota', [App\Http\Controllers\Anggota\DashboardController::class, 'index']);
-// Route::get('data-buku-anggota', [App\Http\Controllers\Anggota\DataBukuController::class, 'index']);
-// Route::get('detail-buku-anggota/{id}', [App\Http\Controllers\Anggota\DataBukuController::class, 'detail']);
-
-
-// Route::get('data-peminjaman-angggota', [App\Http\Controllers\Anggota\DataPeminjamanController::class, 'index']);
-// Route::post('insert-peminjaman', [App\Http\Controllers\Anggota\DataPeminjamanController::class, 'insert']);
-// Route::post('update-peminjaman-anggota', [App\Http\Controllers\Anggota\DataPeminjamanController::class, 'update']);
-// Route::get('delete-peminjaman-anggota/{id}', [App\Http\Controllers\Anggota\DataPeminjamanController::class, 'delete']);
-
-
-// Route::get('data-pengembalian-anggota', [App\Http\Controllers\Anggota\DataPengembalianController::class, 'index']);
-// Route::get('detail-pengembalian-anggota/{id}', [App\Http\Controllers\Anggota\DataPengembalianController::class, 'detail']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
