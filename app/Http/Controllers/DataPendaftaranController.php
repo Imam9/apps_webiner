@@ -37,14 +37,24 @@ class DataPendaftaranController extends Controller
             return view('institusi/datawebiner')->with('data', $data);
         }else if(Auth::user()->hak_akses == 'pengguna'){
             $tgl = date('Y-m-d');
+            $id_users = Auth::user()->id;
             $data = [
                 'title' => "Data Pendaftaran",
-                'pendaftaran' => VwPendaftaran::where('tgl_webiner', '>=', $tgl)->get(),
+                'pendaftaran' => VwPendaftaran::where('tgl_webiner', '>=', $tgl)->where('id_users', $id_users)->get(),
                 'materi' => Materi::get(),
                 'kategori' => Kategori::get(),
             ];
     
             return view('pengguna/datapendaftaran')->with('data', $data);
+        }else{
+            $tgl = date('Y-m-d');
+            $data = [
+                'title' => "Data Pendaftaran",
+                'riwayat' => VwPendaftaran::where('tgl_webiner', '>=', $tgl)->get(),
+                'materi' => Materi::get(),
+            ];
+    
+            return view('admin/datapendaftaran')->with('data', $data);
         }
     }
 

@@ -59,4 +59,17 @@ Route::get('riwayat-pendaftaran', [App\Http\Controllers\DataRiwayatController::c
 Route::get('detail-riwayat/{id}', [App\Http\Controllers\DataRiwayatController::class, 'detail']);
 
 
+// Role Admin
+Route::get('dashboard-admin', [App\Http\Controllers\DashboardController::class, 'index']);
+
+Route::get('data-admin', [App\Http\Controllers\DataAdminController::class, 'index']);
+Route::post('insert-admin', [App\Http\Controllers\DataAdminController::class, 'insert']);
+Route::post('update-admin', [App\Http\Controllers\DataAdminController::class, 'update']);
+Route::get('delete-admin/{id}', [App\Http\Controllers\DataAdminController::class, 'delete']);
+
+Route::get('data-pengguna', [App\Http\Controllers\DataPenggunaController::class, 'index']);
+
+Route::get('data-institusi', [App\Http\Controllers\DataInstitusiController::class, 'index']);
+
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

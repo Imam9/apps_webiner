@@ -27,8 +27,9 @@ class DataRiwayatController extends Controller
     public function index()
     {
 
+        $id_users =  Auth::user()->id;
+        $tgl = date('Y-m-d');
         if(Auth::user()->hak_akses == 'institusi'){
-            $id_users =  Auth::user()->id;
             $data = [
                 'title' => "Data Pendaftaran",
                 'webiner' => VwWebiner::where('id_users', $id_users)->get(),
@@ -37,7 +38,14 @@ class DataRiwayatController extends Controller
     
             return view('institusi/datariwayat')->with('data', $data);
         }else if(Auth::user()->hak_akses == 'pengguna'){
-            $tgl = date('Y-m-d');
+            $data = [
+                'title' => "Data Riwayat Pendaftaran",
+                'riwayat' => VwPendaftaran::where('tgl_webiner', '<', $tgl)->where('id_users', $id_users)->get(),
+                'materi' => Materi::get(),
+            ];
+    
+            return view('pengguna/datariwayat')->with('data', $data);
+        }else{
             $data = [
                 'title' => "Data Riwayat Pendaftaran",
                 'riwayat' => VwPendaftaran::where('tgl_webiner', '<', $tgl)->get(),

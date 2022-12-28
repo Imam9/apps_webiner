@@ -42,6 +42,13 @@ class DataWebinerController extends Controller
             ];
     
             return view('pengguna/datawebiner')->with('data', $data);
+        }else{
+            $data = [
+                'title' => "Data Webinar",
+                'webiner' => VwWebiner::get(),
+            ];
+    
+            return view('admin/datawebiner')->with('data', $data);
         }
     }
 
