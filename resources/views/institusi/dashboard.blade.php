@@ -45,7 +45,7 @@
             </div>
             <div class="card-wrap">
               <div class="card-header">
-                <h4>Data Webiner</h4>
+                <h4>Data Webinar</h4>
               </div>
               <div class="card-body">
               

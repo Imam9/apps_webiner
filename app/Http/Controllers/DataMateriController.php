@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Webiner;
 use App\Models\Materi;
 use App\Models\Kategori;
+use App\Models\Institusi;
 use App\Models\VwWebiner;
 use App\Models\VwMateri;
 use App\Models\VwWebinerMateri;
@@ -25,7 +26,12 @@ class DataMateriController extends Controller
     public function index()
     {
 
-        $id_users =  Auth::user()->id;
+        $id =  Auth::user()->id;
+
+
+        $institusi = Institusi::where('id_users', $id)->first();
+
+        $id_users = $institusi->id_users;
 
         $data = [
             'title' => "Data Materi",
@@ -102,7 +108,7 @@ class DataMateriController extends Controller
     }
 
     public function delete($id_materi){
-        add_materi::where('id_materi', $id_materi)->delete();
+        Materi::where('id_materi', $id_materi)->delete();
         return redirect()->back()->with('suc_message', 'Data Berhasil Dihapus!');
     }
 
@@ -117,4 +123,6 @@ class DataMateriController extends Controller
 
         return view('institusi/addmateriwebiner')->with('data', $data);
     }
+
+
 }

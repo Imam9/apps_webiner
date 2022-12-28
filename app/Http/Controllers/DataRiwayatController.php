@@ -39,7 +39,7 @@ class DataRiwayatController extends Controller
         }else if(Auth::user()->hak_akses == 'pengguna'){
             $tgl = date('Y-m-d');
             $data = [
-                'title' => "Data Riwayat Pendafataran",
+                'title' => "Data Riwayat Pendaftaran",
                 'riwayat' => VwPendaftaran::where('tgl_webiner', '<', $tgl)->get(),
                 'materi' => Materi::get(),
             ];

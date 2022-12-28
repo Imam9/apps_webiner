@@ -6,8 +6,8 @@
     <div class="section-header">
     <h1>{{$data['title']}}</h1>
     </div>
-    <h2 class="section-title">Data Webiner</h2>
-    <p class="section-lead">Data Webiner Terbaru</p>
+    <h2 class="section-title">Data Webinar</h2>
+    <p class="section-lead">Data Webinar Terbaru</p>
     <div class="row">
         <div class="col-md-12 text-right">
             <a href="">Read More </a>

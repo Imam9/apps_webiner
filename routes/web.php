@@ -46,6 +46,7 @@ Route::get('data-materi', [App\Http\Controllers\DataMateriController::class, 'in
 Route::get('add-materi/{id}', [App\Http\Controllers\DataMateriController::class, 'add_materi']);
 Route::post('insert-materi', [App\Http\Controllers\DataMateriController::class, 'insert']);
 Route::post('update-materi', [App\Http\Controllers\DataMateriController::class, 'update']);
+Route::get('delete-materi/{id}', [App\Http\Controllers\DataMateriController::class, 'delete']);
 
 
 

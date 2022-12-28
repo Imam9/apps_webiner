@@ -35,8 +35,8 @@
                     <thead >
                         <tr >
                             <th width = "5%">No.</th>
-                            <th>Nama Webiner</th>
-                            <th>Tanggal Webiner</th>
+                            <th>Nama Webinar</th>
+                            <th>Tanggal Webinar</th>
                             <th>Jam Mulai</th>
                             <th>Jam Selesai</th>
                             <th>Kuota</th>

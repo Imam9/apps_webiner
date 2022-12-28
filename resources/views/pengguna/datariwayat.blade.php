@@ -7,9 +7,9 @@
     <h1>{{$data['title']}}</h1>
     </div>
 
-    <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#myModal">
+    {{-- <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#myModal">
         <i class="fa fa-plus"></i> Tambah Data
-    </button>
+    </button> --}}
 
     <div class="section-body">
         <div class="row">

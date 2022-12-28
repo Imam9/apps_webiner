@@ -30,19 +30,19 @@
         </div>
         <div class="card">
             <div class="card-header">
-                <h4>Detail Webiner</h4>
+                <h4>Detail Webinar</h4>
             </div>
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="">Nama Webiner</label>
+                            <label for="">Nama Webinar</label>
                             <input type="text" name = "nama_webiner" class="form-control" readonly value = "{{$data['detail']->nama_webiner}}">
                         </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="">Tanggal Webiner</label>
+                                    <label for="">Tanggal Webinar</label>
                                     <input type="text" name = "tgl_webiner" class="form-control" readonly value = "{{$data['detail']->tgl_webiner}}">
                                 </div>
                             </div>
@@ -88,7 +88,7 @@
                        
                     </div>
                     <div class="col-md-6">
-                        <label for="">Gambar Webiner</label>
+                        <label for="">Gambar Webinar</label>
                         <img src="{{asset('webiner/'.$data['detail']->gambar_webiner)}}" alt="" width="100%">
                       
                         <div class="form-group mt-2">
@@ -110,7 +110,7 @@
 
         <div class="card">
             <div class="card-header">
-                <h4>Data Materi Webiner</h4>
+                <h4>Data Materi Webinar</h4>
             </div>
             <div class="card-body">
                 <table id="myTable2" class="table table-striped table-hover" cellspacing="0" width="100%">

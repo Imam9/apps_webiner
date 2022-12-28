@@ -28,7 +28,7 @@ class DataWebinerController extends Controller
         if(Auth::user()->hak_akses == 'institusi'){
             $id_users =  Auth::user()->id;
             $data = [
-                'title' => "Data Webiner",
+                'title' => "Data Webinar",
                 'webiner' => VwWebiner::where('id_users', $id_users)->get(),
                 'kategori' => Kategori::get(),
             ];
@@ -36,7 +36,7 @@ class DataWebinerController extends Controller
             return view('institusi/datawebiner')->with('data', $data);
         }else if(Auth::user()->hak_akses == 'pengguna'){
             $data = [
-                'title' => "Data Webiner",
+                'title' => "Data Webinar",
                 'webiner' => VwWebiner::get(),
                 'kategori' => Kategori::get(),
             ];
@@ -127,8 +127,9 @@ class DataWebinerController extends Controller
 
     public function detail($id_webiner){
         
+        
         $data = [
-            'title' => "Detail Data Webiner",
+            'title' => "Detail Data Webinar",
             'detail' => VwWebiner::where('id_webiner', $id_webiner)->first(),
             'peserta' => VwPendaftaran::where('id_webiner', $id_webiner)->get(),
         ];

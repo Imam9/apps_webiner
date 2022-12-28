@@ -38,9 +38,9 @@
                     <thead >
                         <tr >
                             <th width = "5%">No.</th>
-                            <th>Nama Webiner</th>
-                            <th>Gambar Webiner</th>
-                            <th>Tanggal Webiner</th>
+                            <th>Nama Webinar</th>
+                            <th>Gambar Webinar</th>
+                            <th>Tanggal Webinar</th>
                             <th>Jam Mulai</th>
                             <th>Jam Selesai</th>
                             <th>Kuota</th>
@@ -91,13 +91,13 @@
                 <div class="modal-body">
                     @csrf
                     <div class="form-group">
-                        <label for="">Nama Webiner</label>
+                        <label for="">Nama Webinar</label>
                         <input type="text" name = "nama_webiner" class="form-control" required>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="">Tanggal Webiner</label>
+                                <label for="">Tanggal Webinar</label>
                                 <input type="date" name = "tgl_webiner" class="form-control" required>
                             </div>   
                         </div>
@@ -121,7 +121,7 @@
                         <input type="number" name = "slot_peserta" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label for="">Kategori Webiner</label>
+                        <label for="">Kategori Webinar</label>
                         <select name="id_kategori" class="form-control" id="" required>
                             <option>--Pilih Kategori--</option>
                             @foreach ($data['kategori'] as $item)
@@ -130,15 +130,15 @@
                         </select>
                     </div>   
                     <div class="form-group">
-                        <label for="">Deskripsi Webiner</label>
+                        <label for="">Deskripsi Webinar</label>
                         <textarea name="deskripsi_webiner"  class="form-control" required cols="30" rows="10"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="">Link Webiner</label>
+                        <label for="">Link Webinar</label>
                         <input type="text" name = "link_webiner" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label for="">Gambar Webiner</label>
+                        <label for="">Gambar Webinar</label>
                         <input type="file" name = "gambar" class="form-control" required>
                     </div>
                 </div>
@@ -167,20 +167,20 @@
                 <div class="modal-body">
                     @csrf
                     <div class="form-group">
-                        <label for="">Nama Webiner</label>
+                        <label for="">Nama Webinar</label>
                         <input type="hidden" name = "id_webiner" value = "{{$item->id_webiner}}">
                         <input type="text" name = "nama_webiner" class="form-control" value = "{{$item->nama_webiner}}" required>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="">Tanggal Webiner</label>
+                                <label for="">Tanggal Webinar</label>
                                 <input type="date" name = "tgl_webiner" value = "{{$item->tgl_webiner}}" class="form-control" required>
                             </div>   
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="">Link Webiner</label>
+                        <label for="">Link Webinar</label>
                         <input type="text" name = "link_webiner" class="form-control" value = "{{$item->link_webiner}}" required>
                     </div>
                     <div class="row">
@@ -202,12 +202,12 @@
                         <input type="number" name = "slot_peserta" class="form-control" value = "{{$item->slot_peserta}}" required>
                     </div>
                     <div class="form-group">
-                        <label for="">Deskripsi Webiner</label>
+                        <label for="">Deskripsi Webinar</label>
                         <textarea name="deskripsi_webiner" value = "{{$item->deskripsi_webiner}}" class="form-control" required cols="30" rows="10">{{$item->deskripsi_webiner}}</textarea>
                     </div>
                     
                     <div class="form-group">
-                        <label for="">Kategori Webiner</label>
+                        <label for="">Kategori Webinar</label>
                         <select name="id_kategori" class="form-control" id="" required>
                             <option value = "{{$item->id_kategori}}">{{$item->kategori}}</option>
                             @foreach ($data['kategori'] as $item)
@@ -216,7 +216,7 @@
                         </select>
                     </div>   
                     <div class="form-group">
-                        <label for="">Gambar Webiner</label>
+                        <label for="">Gambar Webinar</label>
                         <input type="file" name = "gambar" class="form-control">
                     </div>
                 </div>
