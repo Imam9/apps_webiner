@@ -52,7 +52,7 @@ class DataRiwayatController extends Controller
                 'materi' => Materi::get(),
             ];
     
-            return view('pengguna/datariwayat')->with('data', $data);
+            return view('admin/datariwayat')->with('data', $data);
         }
     }
 
@@ -65,7 +65,7 @@ class DataRiwayatController extends Controller
             'detail' => $detail,
         ];
 
-        return view('pengguna/detailriwayatpendaftaran')->with('data', $data);
+        return view('admin/detailriwayatpendaftaran')->with('data', $data);
     }
 
 

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <link rel="shortcut icon" href="{{ asset('') }}template/img/logo.png" type="image/x-icon">
-    <title>Applikasi Webiner</title>
+    <title>Applikasi Webinar</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -27,6 +27,8 @@
     <link href="{{asset('')}}select2/dist/css/select2.min.css" rel="stylesheet" />
     <script src="{{asset('')}}select2/dist/js/select2.min.js"></script>
 
+    <link rel="stylesheet" type="text/css" href="{{ asset('template') }}/Chartjs/Chart.min.css">
+    <script type="text/javascript" src="{{ asset('template')}}/Chartjs/Chart.min.js"> </script>
 
     <!-- css untuk select2 -->
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />

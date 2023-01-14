@@ -103,45 +103,49 @@
                 </div>
             </div>
         </div>
-        <div class="card">
-            <div class="card-header">
-                <h4>Data Pendaftaran</h4>
-            </div>
-            <div class="card-body">
-                <table id="myTable2" class="table table-striped table-hover" cellspacing="0" width="100%">
-                    <thead >
-                        <tr >
-                            <th width = "5%">No.</th>
-                            <th>Nama Pendaftar</th>
-                            <th>Tanggal Daftar</th>
-                            <th>Tanggal Absen</th>
-                            <th>Email Pendaftar</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php $no =1; ?>
-                        @foreach ($data['peserta'] as $item)
-                            <tr>
-                                <td>{{$no++}}</td>
-                                <td>{{$item->name}}</td>
-                                <td>{{$item->tgl_pendaftaran}}</td>
-                                <td>{{$item->tgl_absensi}}</td>
-                                <td>{{$item->email}}</td>
-                                <td>
-                                    <?php if($item->tgl_absensi == NULL){ ?>
-                                        <div class="badge badge-warning">Belum Hadir</div>
-                                    <?php }else{ ?>
-                                         <div class="badge badge-success">Hadir</div>
-                                    <?php } ?>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
 
+        <?php if(Auth::user()->hak_akses == 'institusi' AND Auth::user()->hak_akses == 'admin'){ ?>
+
+            <div class="card">
+                <div class="card-header">
+                    <h4>Data Pendaftaran</h4>
+                </div>
+                <div class="card-body">
+                    <table id="myTable2" class="table table-striped table-hover" cellspacing="0" width="100%">
+                        <thead >
+                            <tr >
+                                <th width = "5%">No.</th>
+                                <th>Nama Pendaftar</th>
+                                <th>Tanggal Daftar</th>
+                                <th>Tanggal Absen</th>
+                                <th>Email Pendaftar</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $no =1; ?>
+                            @foreach ($data['peserta'] as $item)
+                                <tr>
+                                    <td>{{$no++}}</td>
+                                    <td>{{$item->name}}</td>
+                                    <td>{{$item->tgl_pendaftaran}}</td>
+                                    <td>{{$item->tgl_absensi}}</td>
+                                    <td>{{$item->email}}</td>
+                                    <td>
+                                        <?php if($item->tgl_absensi == NULL){ ?>
+                                            <div class="badge badge-warning">Belum Hadir</div>
+                                        <?php }else{ ?>
+                                             <div class="badge badge-success">Hadir</div>
+                                        <?php } ?>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+    
+                </div>
             </div>
-        </div>
+        <?php } ?>
     </div>
 </section>
 

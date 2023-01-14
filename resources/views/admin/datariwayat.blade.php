@@ -6,6 +6,11 @@
     <div class="section-header">
     <h1>{{$data['title']}}</h1>
     </div>
+
+    {{-- <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#myModal">
+        <i class="fa fa-plus"></i> Tambah Data
+    </button> --}}
+
     <div class="section-body">
         <div class="row">
             <div class="col-md-12 col-sm-12">
@@ -34,36 +39,29 @@
                         <tr >
                             <th width = "5%">No.</th>
                             <th>Nama Institusi</th>
-                            <th>Kategori</th>
-                            <th>Nama Webinar</th>
-                            <th>Gambar Webinar</th>
-                            <th>Tanggal Webinar</th>
+                            {{-- <th>Kategori</th> --}}
+                            <th>Gambar Webiner</th>
+                            <th>Nama Webiner</th>
+                            <th>Tanggal Webiner</th>
                             <th>Jam Mulai</th>
                             <th>Jam Selesai</th>
-                            <th>Kuota</th>
-                            <th>Sisa Kuota</th>
-                            <th>Link Webiner</th>
                             <th class="text-center">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php $no = 1;?>
-                        @foreach ($data['webiner'] as $item)
+                        @foreach ($data['riwayat'] as $item)
                             <tr>
                                 <td>{{$no++}}</td>
                                 <td>{{$item->nama_institusi}}</td>
-                                <td>{{$item->kategori}}</td>
+                                {{-- <td>{{$item->kategori}}</td> --}}
+                                <td width="10%"><img src="{{url('webiner/'.$item->gambar_webiner)}}" alt="" width="100%"></td>
                                 <td>{{$item->nama_webiner}}</td>
-                                <td width="15%"><img src="{{url('webiner/'.$item->gambar_webiner)}}" alt="" width="100%"></td>
                                 <td>{{$item->tgl_webiner}}</td>
                                 <td>{{$item->jam_mulai}}</td>
                                 <td>{{$item->jam_selesai}}</td>
-                                <td>{{$item->slot_peserta}}</td>
-                                <td>{{$item->sisa_slot_peserta}}</td>
-                                <td><a href="{{$item->link_webiner}}" target="_BLANK">Link Join</a></td>
                                 <td width = "10%" class="text-center">
-                                    <a href="{{url('detail-webiner/'.$item->id_webiner)}}" class="btn btn-info btn-sm"><i class = "fa fa-eye"></i></a>
-                                    
+                                    <a href="{{url('detail-riwayat/'.$item->id_pendaftaran)}}" class="btn btn-info btn-sm"><i class = "fa fa-eye"></i></a>
                                 </td>
                             </tr>
                         @endforeach
@@ -74,7 +72,6 @@
             </div>
         </div>
     </div>
-</section>
-
+</section> 
 
 @endsection

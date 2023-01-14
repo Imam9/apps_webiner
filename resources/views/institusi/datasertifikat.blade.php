@@ -6,6 +6,8 @@
     <div class="section-header">
     <h1>{{$data['title']}}</h1>
     </div>
+
+
     <div class="section-body">
         <div class="row">
             <div class="col-md-12 col-sm-12">
@@ -33,16 +35,12 @@
                     <thead >
                         <tr >
                             <th width = "5%">No.</th>
-                            <th>Nama Institusi</th>
-                            <th>Kategori</th>
                             <th>Nama Webinar</th>
-                            <th>Gambar Webinar</th>
                             <th>Tanggal Webinar</th>
                             <th>Jam Mulai</th>
                             <th>Jam Selesai</th>
                             <th>Kuota</th>
-                            <th>Sisa Kuota</th>
-                            <th>Link Webiner</th>
+                            <th>Jumlah Sertifikat</th>
                             <th class="text-center">Action</th>
                         </tr>
                     </thead>
@@ -51,19 +49,14 @@
                         @foreach ($data['webiner'] as $item)
                             <tr>
                                 <td>{{$no++}}</td>
-                                <td>{{$item->nama_institusi}}</td>
-                                <td>{{$item->kategori}}</td>
                                 <td>{{$item->nama_webiner}}</td>
-                                <td width="15%"><img src="{{url('webiner/'.$item->gambar_webiner)}}" alt="" width="100%"></td>
                                 <td>{{$item->tgl_webiner}}</td>
                                 <td>{{$item->jam_mulai}}</td>
                                 <td>{{$item->jam_selesai}}</td>
                                 <td>{{$item->slot_peserta}}</td>
-                                <td>{{$item->sisa_slot_peserta}}</td>
-                                <td><a href="{{$item->link_webiner}}" target="_BLANK">Link Join</a></td>
+                                <td>{{$item->jumlah_sertifikat}}</td>
                                 <td width = "10%" class="text-center">
-                                    <a href="{{url('detail-webiner/'.$item->id_webiner)}}" class="btn btn-info btn-sm"><i class = "fa fa-eye"></i></a>
-                                    
+                                    <a href="{{url('add-sertifikat/'.$item->id_webiner)}}" class="btn btn-info btn-sm"><i class = "fa fa-plus"></i> Sertifikat</a>
                                 </td>
                             </tr>
                         @endforeach
@@ -75,6 +68,5 @@
         </div>
     </div>
 </section>
-
-
+>
 @endsection

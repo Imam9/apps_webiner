@@ -10,7 +10,7 @@
     <p class="section-lead">Data Webinar Terbaru</p>
     <div class="row">
         <div class="col-md-12 text-right">
-            <a href="">Read More </a>
+            <a href="{{url('readmore-data-webiner')}}">Read More </a>
         </div>
     </div>
     <div class="section-body">

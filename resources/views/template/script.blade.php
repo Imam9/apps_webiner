@@ -12,7 +12,8 @@
 <script src="{{ asset('template/datatables/vfs_fonts.js') }}"></script>
 <script src="{{ asset('template/datatables/buttons.html5.min.js') }}"></script>
 
-<script src="{{ asset('template/js/stisla.js')}}"></script>
+<!-- Page Specific JS File -->
+<script src="{{ asset('template')}}/js/page/modules-chartjs.js"></script>
 <!-- Template JS File -->
 <script src="{{ asset('template/js/scripts.js') }}"></script>
 <script src="{{ asset('template/js/custom.js') }}"></script>

@@ -7,13 +7,17 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use App\Models\VwInstitusi;
+use App\Models\Kategori;
 use App\Models\Institusi;
 
 class AuthController extends Controller
 {
     public function register()
     {
-        return view('auth.register');
+        $data = [
+            'kategori' => Kategori::get(),
+        ];
+        return view('auth.register', $data);
     }
 
     public function register_institusi()
@@ -28,6 +32,7 @@ class AuthController extends Controller
             'email' => $request->email,
             'phone_number' => $request->phone_number,
             'alamat' => $request->alamat,
+            'id_kategori' => $request->id_kategori,
             'jenis_kelamin' => $request->jenis_kelamin,
             'profesi' => $request->profesi,
             'tgl_lahir' => $request->tgl_lahir,

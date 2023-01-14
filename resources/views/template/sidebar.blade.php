@@ -1,7 +1,7 @@
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
       <div class="sidebar-brand">
-        <a href="">Apps Webiner</a>
+        <a href="">Apps Webinar</a>
       </div>
       <div class="sidebar-brand sidebar-brand-sm">
         <a href="">APS</a>
@@ -41,7 +41,7 @@
             <li><a class="nav-link" href="{{url('data-webiner')}}"><i class="fas fa-book"></i> <span>Data Webiner</span></a></li>
             <li><a class="nav-link" href="{{url('data-pendaftaran')}}"><i class="fas fa-file"></i> <span>Data Pendafataran</span></a></li>
             <li><a class="nav-link" href="{{url('riwayat-pendaftaran')}}"><i class="fas fa-list"></i> <span>Riwayat Pendafataran</span></a></li>
-        
+            <li><a class="nav-link" href="{{url('data-sertifikat')}}"><i class="fas fa-list"></i> <span>Data Sertifikat</span></a></li>
         
         <?php }   ?>
       </aside>

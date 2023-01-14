@@ -40,7 +40,9 @@ Route::get('detail-webiner/{id}', [App\Http\Controllers\DataWebinerController::c
 Route::post('insert-webiner', [App\Http\Controllers\DataWebinerController::class, 'insert']);
 Route::post('update-webiner', [App\Http\Controllers\DataWebinerController::class, 'update']);
 Route::get('ikuti-webiner/{id}', [App\Http\Controllers\DataWebinerController::class, 'ikuti_webiner']);
+Route::post('search-webiner', [App\Http\Controllers\DataWebinerController::class, 'search']);
 
+Route::get('readmore-data-webiner', [App\Http\Controllers\DataWebinerController::class, 'readmore_data_webiner']);
 
 Route::get('data-materi', [App\Http\Controllers\DataMateriController::class, 'index']);
 Route::get('add-materi/{id}', [App\Http\Controllers\DataMateriController::class, 'add_materi']);
@@ -49,7 +51,18 @@ Route::post('update-materi', [App\Http\Controllers\DataMateriController::class, 
 Route::get('delete-materi/{id}', [App\Http\Controllers\DataMateriController::class, 'delete']);
 
 
+Route::get('data-kategori', [App\Http\Controllers\DataKategoriController::class, 'index']);
+Route::post('insert-kategori', [App\Http\Controllers\DataKategoriController::class, 'insert']);
+Route::post('update-kategori', [App\Http\Controllers\DataKategoriController::class, 'update']);
+Route::get('delete-kategori/{id}', [App\Http\Controllers\DataKategoriController::class, 'delete']);
 
+
+Route::get('data-sertifikat', [App\Http\Controllers\DataSertifikatController::class, 'index']);
+Route::get('add-sertifikat/{id}', [App\Http\Controllers\DataSertifikatController::class, 'add_sertifikat']);
+Route::post('insert-template-sertifikat', [App\Http\Controllers\DataSertifikatController::class, 'insert_template']);
+Route::get('cetak-sertifikat/{id}', [App\Http\Controllers\DataSertifikatController::class, 'cetak_sertifikat']);
+Route::get('delete-sertifikat/{id}', [App\Http\Controllers\DataSertifikatController::class, 'delete_sertifikat']);
+Route::post('update-detail-sertifkat', [App\Http\Controllers\DataSertifikatController::class, 'update_detail_sertifikat']);
 // Role Pengguna
 Route::get('dashboard-pengguna', [App\Http\Controllers\DashboardController::class, 'index']);
 Route::get('data-pendaftaran', [App\Http\Controllers\DataPendaftaranController::class, 'index']);
@@ -57,6 +70,8 @@ Route::post('insert-absensi', [App\Http\Controllers\DataPendaftaranController::c
 
 Route::get('riwayat-pendaftaran', [App\Http\Controllers\DataRiwayatController::class, 'index']);
 Route::get('detail-riwayat/{id}', [App\Http\Controllers\DataRiwayatController::class, 'detail']);
+Route::get('cetak-sertifikat-peserta/{id}', [App\Http\Controllers\DataSertifikatController::class, 'cetak_sertifikat_peserta']);
+
 
 
 // Role Admin

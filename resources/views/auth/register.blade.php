@@ -162,6 +162,15 @@
                         <label>Alamat</label>
                         <input type="text" name="alamat" required class="form-control">
                     </div>
+                    <div class="form-group">
+                        <label>Kategori</label>
+                        <select name="id_kategori" class="form-control" required id="">
+                            <option>--Pilih Kategori</option>
+                            @foreach ($kategori as $item)
+                                <option value="{{$item->id_kategori}}">{{$item->kategori}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 
                     <div class="row">
                         <div class="form-group col-6">

@@ -183,4 +183,73 @@ class DataWebinerController extends Controller
         return redirect('data-pendaftaran')->with('suc_message', 'Berhasil Mengikuti Webiner Ini!');
     }
 
+    public function readmore_data_webiner(){
+        $data = [
+            'title' => "Readmore Data Webiner",
+            'webiner' => VwWebiner::get(),
+            'kategori' => Kategori::get(),
+        ];
+
+        return view('pengguna/webinerreadmore')->with('data', $data);
+    }
+
+
+    public function search(Request $request){
+
+
+        if($request->keyword){
+            $keyword = $request->keyword;
+            $tanggal = $request->tanggal;
+            $id_kategori = $reques->id_kategori;
+            
+            $data = [
+                'title' => "Readmore Data Webiner",
+                'webiner' => VwWebiner::where('nama_webiner', 'like', '%'.$keyword.'%')->get(),
+                'kategori' => Kategori::get(),
+            ];
+
+        }
+       
+        
+        if($request->tanggal){
+            $keyword = $request->keyword;
+            $tanggal = $request->tanggal;
+            $id_kategori = $request->id_kategori;
+
+            $data = [
+                'title' => "Readmore Data Webiner",
+                'webiner' => VwWebiner::where('tgl_webiner', $tanggal)->get(),
+                'kategori' => Kategori::get(),
+            ];
+
+        }
+
+        if($request->id_kategori){
+            $keyword = $request->keyword;
+            $tanggal = $request->tanggal;
+            $id_kategori = $request->id_kategori;
+
+
+
+            $data = [
+                'title' => "Readmore Data Webiner",
+                'webiner' => VwWebiner::where('id_kategori', $id_kategori)->get(),
+                'kategori' => Kategori::get(),
+            ];
+        }
+
+        if($request->id_kategori AND $request->tanggal AND $request->id_kategori){
+            $keyword = $request->keyword;
+            $tanggal = $request->tanggal;
+            $id_kategori = $request->id_kategori;
+    
+            $data = [
+                'title' => "Readmore Data Webiner",
+                'webiner' => VwWebiner::where('id_kategori', $id_kategori)->where('tgl_webiner', $tanggal)->where('name', 'like', '%'.$keyword.'%')->get(),
+                'kategori' => Kategori::get(),
+            ];
+        }
+
+        return view('pengguna/webinerreadmore')->with('data', $data);
+    }
 }

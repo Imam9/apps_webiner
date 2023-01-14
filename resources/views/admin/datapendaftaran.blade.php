@@ -38,9 +38,10 @@
                     <thead >
                         <tr >
                             <th width = "5%">No.</th>
-                            <th>Gambar Webiner</th>
-                            <th>Nama Webiner</th>
-                            <th>Tanggal Webiner</th>
+                            <th>Nama Institusi</th>
+                            <th>Gambar Webinar</th>
+                            <th>Nama Webinar</th>
+                            <th>Tanggal Webinar</th>
                             <th>Jam Mulai</th>
                             <th>Jam Selesai</th>
                             <th>Kuota</th>
@@ -53,6 +54,7 @@
                         @foreach ($data['riwayat'] as $item)
                             <tr>
                                 <td>{{$no++}}</td>
+                                <td>{{$item->nama_institusi}}</td>
                                 <td width="10%"><img src="{{url('webiner/'.$item->gambar_webiner)}}" alt="" width="100%"></td>
                                 <td>{{$item->nama_webiner}}</td>
                                 <td>{{$item->tgl_webiner}}</td>
